@@ -1,0 +1,137 @@
+<a href="/c-herramientas/seguridad-industrial">
+  <div class="fullspiff materiales_ferre">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <h3>Seguridad</h3>
+        <span>Ver más</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+<div class="board-ferreteria marcas-ferre">
+  <h2 class="tag-title--level-2">Las mejores marcas</h2>
+  <ul class="marcasferre-slider">
+    <a href="https://beta.cemaco.com/1144?map=productClusterIds">
+      <li>
+        <img src="/arquivos/2021_cemaco_ferreteria_marcaSherwin.jpg" alt="" />
+      </li>
+    </a>
+    <a href="https://beta.cemaco.com/1145?map=productClusterIds">
+      <li>
+        <img src="/arquivos/2021_cemaco_ferreteria_marcaAmerican.jpg" alt="" />
+      </li>
+    </a>
+    <a href="https://beta.cemaco.com/1146?map=productClusterIds">
+      <li>
+        <img src="/arquivos/2021_cemaco_ferreteria_marcaMakita.jpg" alt="" />
+      </li>
+    </a>
+    <a href="https://beta.cemaco.com/1147?map=productClusterIds">
+      <li>
+        <img src="/arquivos/2021_cemaco_ferreteria_marcaMoen.jpg" alt="" />
+      </li>
+    </a>
+    <a href="https://beta.cemaco.com/1120?map=productClusterIds">
+      <li>
+        <img src="/arquivos/2021_cemaco_ferreteria_marcaPfister.jpg" alt="" />
+      </li>
+    </a>
+    <a href="https://beta.cemaco.com/1108?map=productClusterIds">
+      <li>
+        <img src="/arquivos/2021_cemaco_ferreteria_marcaAce.jpg" alt="" />
+      </li>
+    </a>
+    <a href="https://beta.cemaco.com/1148?map=productClusterIds">
+      <li>
+        <img src="/arquivos/2021_cemaco_ferreteria_marcaStanley.jpg" alt="" />
+      </li>
+    </a>
+    <a href="https://beta.cemaco.com/1149?map=productClusterIds">
+      <li>
+        <img src="/arquivos/2021_cemaco_ferreteria_marca_truper.jpg" alt="" />
+      </li>
+    </a>
+    <a href="https://beta.cemaco.com/1150?map=productClusterIds">
+      <li>
+        <img src="/arquivos/2021_cemaco_ferreteria_marcaHermex.jpg" alt="" />
+      </li>
+    </a>
+    <a href="https://beta.cemaco.com/1151?map=productClusterIds">
+      <li>
+        <img src="/arquivos/2021_cemaco_ferreteria_marcaFoset.jpg" alt="" />
+      </li>
+    </a>
+    <a href="https://beta.cemaco.com/1152?map=productClusterIds">
+      <li>
+        <img src="/arquivos/2021_cemaco_ferreteria_marcaPretul.jpg" alt="" />
+      </li>
+    </a>
+  </ul>
+</div>
+
+<script>
+  $(document).ready(function () {
+    $(".marcasferre-slider")
+      .slick({
+        centerPadding: "60px",
+        slidesToShow: 5,
+        slidesToScroll: 5,
+        autoplay: false,
+        arrows: true,
+        prevArrow:
+          "<button type='button' class='slick-prev pull-left'><svg class='svg-icon-chevron-left'><use xlink:href='#svg-icon-chevron-left'</svg></button>",
+        nextArrow:
+          "<button type='button' class='slick-next pull-right'><svg class='svg-icon-chevron-right'><use xlink:href='#svg-icon-chevron-right'</svg></button>",
+
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              centerPadding: "40px",
+              slidesToShow: 3,
+              slidesToScroll: 5,
+              autoplay: false,
+              arrows: true,
+              prevArrow:
+                "<button type='button' class='slick-prev pull-left'><svg class='svg-icon-chevron-left'><use xlink:href='#svg-icon-chevron-left'</svg></button>",
+              nextArrow:
+                "<button type='button' class='slick-next pull-right'><svg class='svg-icon-chevron-right'><use xlink:href='#svg-icon-chevron-right'</svg></button>",
+              slidesToScroll: 3
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              centerPadding: "25px",
+              slidesToShow: 2,
+              slidesToScroll: 4,
+              autoplay: false,
+              arrows: true,
+              prevArrow:
+                "<button type='button' class='slick-prev pull-left'><svg class='svg-icon-chevron-left'><use xlink:href='#svg-icon-chevron-left'</svg></button>",
+              nextArrow:
+                "<button type='button' class='slick-next pull-right'><svg class='svg-icon-chevron-right'><use xlink:href='#svg-icon-chevron-right'</svg></button>",
+              centerMode: true
+            }
+          },
+          {
+            breakpoint: 340,
+            settings: {
+              centerPadding: "25px",
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              autoplay: false,
+              arrows: true,
+              prevArrow:
+                "<button type='button' class='slick-prev pull-left'><svg class='svg-icon-chevron-left'><use xlink:href='#svg-icon-chevron-left'</svg></button>",
+              nextArrow:
+                "<button type='button' class='slick-next pull-right'><svg class='svg-icon-chevron-right'><use xlink:href='#svg-icon-chevron-right'</svg></button>",
+              centerMode: true
+            }
+          }
+        ]
+      })
+      .fadeIn(3000);
+  });
+</script>

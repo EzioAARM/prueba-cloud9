@@ -1,0 +1,257 @@
+<!-- Subcat, themes middle banner -->
+<div class="re-cien bg-white padding-0">
+  <div class="landing-cat">
+          <h2>Compra por categoría</h2>
+          <div class="category-themes">
+                  <div class="grid">
+                          <div class="item">
+                                  <a href="/1017?map=productClusterIds">
+                                          <img src="/arquivos/2021_cemaco_aprendeencasa_catAprendiendo.jpg/"
+                                                  alt="">
+                                          <h2>Aprendiendo<br>en casa</h2>
+                                  </a>
+                          </div>
+                          <div class="item">
+                                  <a href="/1016?map=productClusterIds">
+                                          <img src="/arquivos/2021_cemaco_aprendeencasa_catLibreria.jpg/"
+                                                  alt="">
+                                          <h2>Librería</h2>
+                                  </a>
+                          </div>
+                          <div class="item">
+                                  <a href="/1018?map=productClusterIds">
+                                          <img src="/arquivos/2021_cemaco_aprendeencasa_catEquipa.jpg/"
+                                                  alt="">
+                                          <h2>Equipa tu área<br>de estudio</h2>
+                                  </a>
+                          </div>
+                          <div class="item">
+                                  <a href="/1019?map=productClusterIds">
+                                          <img src="/arquivos/2021_cemaco_aprendeencasa_catTecnologia.jpg/"
+                                                  alt="">
+                                          <h2>Tecnología para<br>tu estudio</h2>
+                                  </a>
+                          </div>
+
+                  </div>
+          </div>
+
+          <div class="middle-banner">
+                  <img src="/arquivos/2021_cemaco_aprendeencasa_bannerintermedio_desk.jpg"
+                          alt="" class="desktop">
+                  <img src="/arquivos/2021_cemaco_aprendeencasa_bannerintermedio_mobile.jpg"
+                          alt="" class="mobile">
+                  <p class="head-text">
+                          <b class="display-1 font-weight-bold">Detalles para tu<br>área de estudio</b>
+                          </br>
+                  </p>
+          </div>
+  </div>
+</div>
+<!-- end Subcat, themes, middle banner -->
+
+<style>
+  .slick-slide {
+          cursor: default;
+  }
+</style>
+
+<div class="carruselDepaAprendeU"></div>
+<div class="carruselDepaAprendeD"></div>
+<div class="board-ferreteria marcas-ferre">
+  <h2 class="tag-title--level-2">Compra por marca</h2>
+  <ul class="marcasferre-slider">
+          <li><a href="/1096?map=productClusterIds"><img src="/arquivos/2021_cemaco_aprendeencasa_marcasCanon.jpg" alt=""></a> </li>
+          <li><a href="/1097?map=productClusterIds"><img src="/arquivos/2021_cemaco_aprendeencasa_marcasEspon.jpg" alt=""></a> </li>
+          <li><a href="/1098?map=productClusterIds"><img src="/arquivos/2021_cemaco_aprendeencasa_marcasPlayDoh.jpg" alt=""></a> </li>
+          <li><a href="/1099?map=productClusterIds"><img src="/arquivos/2021_cemaco_aprendeencasa_marcasCrayola.jpg" alt=""></a> </li>
+          <li><a href="/1100?map=productClusterIds"><img src="/arquivos/2021_cemaco_aprendeencasa_marcasHP.jpg" alt=""></a> </li>
+          <li><a href="/1096?map=productClusterIds"><img src="/arquivos/2021_cemaco_aprendeencasa_marcasCanon.jpg"
+                          alt=""></a> </li>
+          <li><a href="/1097?map=productClusterIds"><img src="/arquivos/2021_cemaco_aprendeencasa_marcasEspon.jpg"
+                          alt=""></a> </li>
+          <li><a href="/1098?map=productClusterIds"><img src="/arquivos/2021_cemaco_aprendeencasa_marcasPlayDoh.jpg"
+                          alt=""></a> </li>
+          <li><a href="/1099?map=productClusterIds"><img src="/arquivos/2021_cemaco_aprendeencasa_marcasCrayola.jpg"
+                          alt=""></a> </li>
+          <li><a href="/1100?map=productClusterIds"><img src="/arquivos/2021_cemaco_aprendeencasa_marcasHP.jpg"
+                          alt=""></a> </li>
+  </ul>
+</div>
+
+<script>
+  function openNav() {
+          document.getElementById("sidenavigation").style.width = "300px";
+  }
+
+  function closeNav() {
+          document.getElementById("sidenavigation").style.width = "0";
+  }
+
+  $('.topnav-m a').click(function () {
+          $('#sidenavigation').style.width = "100%";
+  });
+
+  $('.closebtn').click(function () {
+          $('#sidenavigation').style.width = "0";
+  });
+
+  $(document).ready(function () {
+          $('.product-item').each(function () {
+                  if ($(this).find('.product-item__flag--discount').text() !== '%') {
+                          const finded = $(this).find('.product-item__flag--discount')
+                          finded.appendTo($(this).parent())
+                  }
+          })
+  })
+
+  $(document).ready(function () {
+          $('.marcasferre-slider').slick({
+                  centerPadding: '60px',
+                  slidesToShow: 5,
+                  slidesToScroll: 5,
+                  autoplay: false,
+                  autoplaySpeed: 2000,
+                  responsive: [
+                          {
+                                  breakpoint: 768,
+                                  settings: {
+                                          arrows: true,
+                                          centerMode: true,
+                                          centerPadding: '40px',
+                                          slidesToShow: 3,
+                                          slidesToScroll: 3
+                                  }
+                          },
+                          {
+                                  breakpoint: 480,
+                                  settings: {
+                                          arrows: false,
+                                          centerPadding: '25px',
+                                          slidesToShow: 2,
+                                          slidesToScroll: 4,
+                                          infinite: true,
+                                          centerMode: true
+                                  }
+                          },
+                          {
+                                  breakpoint: 340,
+                                  settings: {
+                                          arrows: false,
+                                          centerPadding: '25px',
+                                          slidesToShow: 1,
+                                          slidesToScroll: 1,
+                                          infinite: true,
+                                          centerMode: true
+                                  }
+                          }
+                  ],
+          }).fadeIn(3000);
+  })
+</script>
+<style>
+  .aprendeencasa .head-text {
+          color: black !important;
+  }
+
+  .aprendeencasa .landing-cat h2 {
+          text-align: center;
+  }
+
+  .category-themes {
+          width: 100% !important;
+          float: none;
+          padding: 0 !important;
+          border-left: 0 !important;
+          margin-bottom: 25px;
+  }
+
+  .landing-cocina .item {
+          padding: 30px 20%;
+  }
+
+  .landing-cocina .products-slider__wrapper .slick-slide {
+          border: 1px solid #fff !important;
+  }
+
+  .landing-cocina .products-slider__wrapper .slick-slide:hover {
+          border: 1px solid #dddddd !important;
+  }
+
+  .middle-banner .head-text {
+          margin-top: -356px;
+          margin-bottom: 0;
+  }
+
+  ul.marcasferre-slider {
+          overflow: hidden;
+  }
+
+  ul.marcasferre-slider li img {
+          width: 65%;
+  }
+
+  @media screen and (max-width: 1366px) {
+          .middle-banner .head-text {
+                  margin-top: -300px;
+          }
+
+  }
+
+  @media screen and (max-width: 1024px) {
+          .middle-banner .head-text {
+                  margin-top: -243px;
+                  margin-bottom: 150px !important;
+          }
+  }
+
+  @media screen and (max-width: 768px) {
+          .category-themes .grid {
+                  grid-template-columns: repeat(2, 1fr);
+          }
+
+          .landing-cocina .item {
+                  padding: 30px 15%;
+          }
+
+          .middle-banner .head-text {
+                  margin-top: -176px;
+                  margin-bottom: 50px !important;
+          }
+  }
+
+  @media screen and (max-width: 480px) {
+          .landing-cocina .item {
+                  padding: 20px 4% 0;
+          }
+
+          .item {
+                  min-height: 169px;
+          }
+
+          .head-text {
+                  margin-top: -32%;
+          }
+
+          .bannerhead h2 {
+                  font-size: 14px;
+          }
+
+          .item:nth-child(odd) {
+                  margin-left: 0;
+          }
+
+          .item:nth-child(even) {
+                  margin-right: 0;
+          }
+
+          .category-themes h3 {
+                  margin-top: 20px !important;
+                  text-align: left !important;
+          }
+
+          .middle-banner .head-text {
+                  margin-top: -106px;
+          }
+  }
+</style>

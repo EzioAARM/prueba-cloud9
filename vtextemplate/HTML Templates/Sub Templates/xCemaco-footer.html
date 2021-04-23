@@ -1,0 +1,612 @@
+<!-- Modal -->
+<style type="text/css">
+  <!--
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 650;
+      width: 100%;
+      height: 100%;
+      background-color: #f7f7f7;
+      background-color: rgba(0, 0, 0, 0.4);
+      margin: auto auto;
+      overflow: hidden;
+    }
+
+    /* Modal Content */
+    .modal-content {
+      background-color: #f7f7f7;
+      margin: auto;
+      padding: 5px;
+      border: 1px solid #888;
+      width: 45%;
+      overflow: hidden;
+      position: fixed;
+      top: 35%;
+      right: 0;
+      left: 0;
+    }
+
+    .modal-titulo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 0;
+      margin-top: 25px;
+    }
+
+    .cemaco-btn {
+      background-color: #94d529;
+      border-radius: 25px;
+      padding: 2% 3%;
+      text-decoration: none !important;
+    }
+
+    .simple-btn {
+      background-color: white;
+      border-radius: 25px;
+      padding: 2% 3%;
+      border-color: 0.9px solid black;
+      border: 1px solid black;
+      margin-top: 10px;
+      text-decoration: none  !important;
+    }
+
+    .espaciado {
+      padding: 2% 0;
+    }
+
+    .modal-content .close {
+      width: 15px;
+      height: 15px;
+      display: block;
+      position: absolute;
+      top: 5px;
+      right: 15px;
+      z-index: 400;
+      border-radius: 50%;
+      margin-top: 0;
+      font-size: 2em;
+      font-weight: bold;
+      line-height: 20px;
+      color: #94d529;
+      font-family: "HelveticaNeueLTW05", sans-serif;
+      text-shadow: none;
+      opacity: 1;
+    }
+
+    #iniciar-sesion {
+        cursor: pointer;
+    }
+
+    @media screen and (max-width: 320px) {
+      .modal-content {
+        width: 85%;
+      }
+
+      .cemaco-btn,
+      .simple-btn {
+        padding: 3% 4%;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .modal-content {
+        width: 90%;
+      }
+
+      .cemaco-btn,
+      .simple-btn {
+        padding: 3% 4%;
+      }
+
+      .espaciado {
+        padding: 3% 0;
+      }
+    }
+
+    @media screen and (max-width: 1000px) {
+      .modal-content {
+        width: 80%;
+        top: 25%;
+      }
+
+      .cemaco-btn,
+      .simple-btn {
+        padding: 3% 4%;
+      }
+
+      .espaciado {
+        padding: 3% 0;
+      }
+    }
+  -->
+</style>
+
+<!-- The Modal -->
+<div id="modal-activacion" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">X</span>
+    <p class="text-center modal-titulo">¡Bienvenidos a nuestro nuevo sitio!</p>
+    <p class="text-center espaciado">
+      Si ya tienes cuenta en cemaco.com, la hemos migrado, ¡tus datos están
+      seguros!<br />Sólo un clic más y ¡listo!
+    </p>
+
+    <p class="text-center espaciado">
+      <a
+        class="cemaco-btn"
+        href="/login?ReturnUrl=%2f_secure%2faccount#/profile"
+      >
+        <span><b>Sí tengo cuenta: activar</b></span>
+      </a>
+    </p>
+    <p class="text-center espaciado">
+      <a
+        class="simple-btn"
+        href="/login?ReturnUrl=%2f_secure%2faccount#/profile?activateAccount"
+      >
+        <span><b>No tengo cuenta: crear</b></span>
+      </a>
+    </p>
+    <p class="text-center espaciado">
+      ¿Ya activaste tu cuenta? Haz clic
+      <span id="iniciar-sesion"><u>aquí</u></span> para iniciar sesión
+    </p>
+    <p class="text-center espaciado">¡Muchas gracias!</p>
+  </div>
+</div>
+
+<script type="application/javascript">
+  //<![CDATA[
+  function crearvariable() {
+    localStorage.setItem("nuevositioactivacion", "stayclosed");
+  }
+
+  function validarvariable() {
+    return localStorage.getItem("nuevositioactivacion");
+  }
+
+  var mostrarmodal = false;
+  var span = document.getElementsByClassName("close")[0];
+  var modal = document.getElementById("modal-activacion");
+
+  $.ajax({
+    url: "https://beta.cemaco.com/api/vtexid/pub/authenticated/user",
+    type: "GET",
+    dataType: "json",
+    success: function (json) {
+      json != null
+        ? (mostrarmodal = false)
+        : validarvariable() != null
+        ? (mostrarmodal = false)
+        : (mostrarmodal = true);
+
+      $(function () {
+        mostrarmodal
+          ? setTimeout(function(){(modal.style.display = "block")}, 60000)
+          : (modal.style.display = "none");
+      });
+    }
+  });
+
+  $("#iniciar-sesion").click(function () {
+    modal.style.display = "none";
+    crearvariable();
+    window.location.replace(
+      "https://beta.cemaco.com/login?ReturnUrl=%2f_secure%2faccount#/profile"
+    );
+  });
+
+  span.onclick = function () {
+    crearvariable();
+    modal.style.display = "none";
+  };
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      crearvariable();
+      modal.style.display = "none";
+    }
+  };
+  //]]>
+</script>
+<!-- Modal -->
+
+<div class="pre-footer">
+  <div class="re-central pre-footer__wrapper">
+    <div class="box s40">
+      <div class="s40">
+        <img
+          src="/arquivos/img-empresa-certificada.png"
+          alt="Empresa Certificada"
+        />
+      </div>
+      <div class="s60">
+        <h3>Somos una Empresa B</h3>
+        <p>
+          Estamos orgullosos de ser reconocidos por los más altos estándares de
+          sostenibilidad social y ambiental.
+        </p>
+        <a href="/sostenibilidad#empresaB" class="button-simple secondary">
+          Conoce más
+          <svg class="svg-icon">
+            <use href="#svg-icon-chevron-right"></use>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="line-divider v"></div>
+    <div class="box s40">
+      <h2 class="footer__title">
+        Suscríbete
+        <span class="sub-text">Recibe ofertas, noticias y promociones</span>
+      </h2>
+      <!-- Subscribe. Begin -->
+      <div id="generalSubscribeWrapper" class="subscribe__wrapper">
+        <form action="#" method="POST" class="subscribe__form">
+          <button
+            class="subscribe__form__submit g-recaptcha"
+            id="subscribebarButton1"
+            data-sitekey="6Le5C3oaAAAAACIWrXP3lkl9DmiXDOWBgtVyuauw"
+            data-callback="onSubmit"
+            data-action="submit"
+          >
+            <svg class="svg-icon nav-ecommerce__icon">
+              <use href="#svg-icon-chevron-right"></use>
+            </svg>
+          </button>
+          <div class="control-wrapper">
+            <input
+              type="text"
+              id="subscribebarInput1"
+              value=""
+              placeholder="Ingresa tu email..."
+              autocomplete="off"
+              class="fulltext-subscribe-box2"
+            />
+          </div>
+        </form>
+      </div>
+      <!-- Subscribe. End -->
+    </div>
+  </div>
+</div>
+<footer id="siteFooter" class="site-footer">
+  <div class="principal-footer__wrapper">
+    <div class="principal-footer re-central">
+      <div class="footer__block footer__collapse">
+        <h6 class="footer__title footer__collapse--title">Servicios</h6>
+        <ul class="footer__list footer__collapse--content">
+          <li>
+            <a href="http://instalaciones.cemaco.com" target="_blank"
+              >Instalaciones</a
+            >
+          </li>
+          <li><a href="/tiendas">Tiendas</a></li>
+          <li><a href="/privilegio">Privilegio</a></li>
+          <li><a href="/servicio-empresas">Servicio a Empresas</a></li>
+          <li><a href="/mesa-de-regalos/boda">Bodas</a></li>
+        </ul>
+      </div>
+      <div class="footer__block footer__collapse">
+        <h6 class="footer__title footer__collapse--title">Venta en línea</h6>
+        <ul class="footer__list footer__collapse--content">
+          <li><a href="/autoservicio">Retira en tienda</a></li>
+          <li><a href="/metodos-de-pago">Métodos de pago</a></li>
+          <li><a href="/preguntas-frecuentes">Preguntas frecuentes</a></li>
+          <li><a href="/privacidad-y-seguridad">Privacidad y seguridad</a></li>
+          <li><a href="/terminos-y-condiciones">Términos y condiciones </a></li>
+        </ul>
+      </div>
+      <div class="footer__block footer__collapse">
+        <h6 class="footer__title footer__collapse--title">Nuestros Valores</h6>
+        <ul class="footer__list footer__collapse--content">
+          <li><a href="/sostenibilidad">Sostenibilidad</a></li>
+          <li><a href="/garantia-total">Garantía Total</a></li>
+          <li>
+            <a href="/sostenibilidad#empresaB">Certificación Sistema B</a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer__block footer__collapse">
+        <h6 class="footer__title footer__collapse--title">
+          Grupo
+          <svg class="footer__logo">
+            <use href="#svg-icon-account-logo-footer"></use>
+          </svg>
+        </h6>
+        <ul class="footer__list footer__collapse--content">
+          <li>
+            <a href="https://grupocemaco.com" target="_blank"
+              >Únete a nuestro equipo</a
+            >
+          </li>
+          <li><a href="/sostenibilidad">Sobre nosotros</a></li>
+          <li><a href="/proveedores">Deseas ser proveedor</a></li>
+          <!-- li><a href="http://hazlotumismo.cemaco.com" target="_blank">Blog</a></li -->
+          <li><a href="/jugueton">Juguetón</a></li>
+          <li><a href="/bebe-jugueton">Bebé Juguetón</a></li>
+        </ul>
+      </div>
+      <div class="footer__block footer__collapse hidden-md-down">
+        <div class="footer__item footer--contacto">
+          <h6 class="footer__title footer__collapse--title">
+            Mantente conectado
+          </h6>
+          <a href="https://wa.me/+50224999990" target="_blank">
+            <svg class="svg-icon-whatsapp">
+              <use href="#svg-icon-whatsapp"></use>
+            </svg>
+            Compra por whatsapp
+          </a>
+
+          <a href="tel:+50224999990">
+            <svg class="svg-icon-phone">
+              <use href="#svg-icon-telefono"></use>
+            </svg>
+            (502) 2499-9990
+          </a>
+
+          <a href="mailto:tusamigos@cemaco.com">
+            <svg class="svg-icon-email">
+              <use href="#svg-icon-email"></use>
+            </svg>
+            tusamigos@cemaco.com
+          </a>
+
+          <a href="https://wa.me/50224999990" target="_blank">
+            <svg class="svg-icon-chat">
+              <use href="#svg-icon-chat"></use>
+            </svg>
+            Chat en línea
+          </a>
+
+          <ul class="footer__list--social">
+            <li>
+              <a href="https://www.facebook.com/cemacogt" target="_blank">
+                <svg class="svg-icon-facebook">
+                  <use href="#svg-icon-facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="http://instagram.com/cemaco/" target="_blank">
+                <svg class="svg-icon-instagram">
+                  <use href="#svg-icon-instagram"></use>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/user/cemacogt" target="_blank">
+                <svg class="svg-icon-youtube">
+                  <use href="#svg-icon-youtube"></use>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/cemaco_gt" target="_blank">
+                <svg class="svg-icon-twitter">
+                  <use href="#svg-icon-twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.pinterest.com/cemacoguatemala/"
+                target="_blank"
+              >
+                <svg class="svg-icon-pinterest">
+                  <use href="#svg-icon-pinterest"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer--contacto hidden-lg-up">
+      <a href="https://wa.me/+50224999990" target="_blank">
+        <svg class="svg-icon-whatsapp">
+          <use href="#svg-icon-whatsapp"></use>
+        </svg>
+        Compra por whatsapp
+      </a>
+
+      <a href="tel:+50224999990">
+        <svg class="svg-icon-phone">
+          <use href="#svg-icon-telefono"></use>
+        </svg>
+        +(502) 2499 9990
+      </a>
+
+      <a href="mailto:tusamigos@cemaco.com">
+        <svg class="svg-icon-email">
+          <use href="#svg-icon-email"></use>
+        </svg>
+        tusamigos@cemaco.com
+      </a>
+
+      <a href="https://wa.me/+50224999990" target="_blank">
+        <svg class="svg-icon-chat">
+          <use href="#svg-icon-chat"></use>
+        </svg>
+        Chat en línea
+      </a>
+
+      <ul class="footer__list--social">
+        <li>
+          <a href="https://www.facebook.com/cemacogt/" target="_blank">
+            <svg class="svg-icon-facebook">
+              <use href="#svg-icon-facebook"></use>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/cemaco/" target="_blank">
+            <svg class="svg-icon-instagram">
+              <use href="#svg-icon-instagram"></use>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/user/cemacogt" target="_blank">
+            <svg class="svg-icon-youtube">
+              <use href="#svg-icon-youtube"></use>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/cemaco_gt" target="_blank">
+            <svg class="svg-icon-twitter">
+              <use href="#svg-icon-twitter"></use>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.pinterest.com/cemacoguatemala/" target="_blank">
+            <svg class="svg-icon-pinterest">
+              <use href="#svg-icon-pinterest"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+      <div class="footer__legal">
+        <!-- <div class="footer__legal__info">
+                    <span>© CEMACO, Inc. 2019 Todos Los Derechos Reservados.</span>
+                </div> -->
+        <ul class="footer__legal--action">
+          <li>
+            <a href="/privacidad-y-seguridad">
+              Política y privacidad
+            </a>
+          </li>
+          <li>
+            <a href="/terminos-y-condiciones">
+              Términos y condiciones
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="post-footer__wrapper">
+    <div class="footer__payments">
+      <span>Formas de pago:</span>
+      <ul>
+        <li>
+          <svg class="svg-icon">
+            <use href="#svg-icon-mastercard"></use>
+          </svg>
+        </li>
+        <li>
+          <svg class="svg-icon">
+            <use href="#svg-icon-visa"></use>
+          </svg>
+        </li>
+        <li>
+          <svg class="svg-icon">
+            <use href="#svg-icon-bam"></use>
+          </svg>
+        </li>
+        <li>
+          <svg class="svg-icon">
+            <use href="#svg-icon-bi"></use>
+          </svg>
+        </li>
+        <li>
+          <svg class="svg-icon">
+            <use href="#svg-icon-continental"></use>
+          </svg>
+        </li>
+        <li>
+          <svg class="svg-icon">
+            <use href="#svg-icon-bantrab"></use>
+          </svg>
+        </li>
+      </ul>
+    </div>
+    <div class="post-footer re-central">
+      <div class="footer__legal">
+        <!-- <div class="footer__legal__info hidden-md-down">
+                    <span>© CEMACO, Inc. 2020 Todos Los Derechos Reservados.</span>
+                </div> -->
+        <ul class="footer__legal--action hidden-md-down">
+          <li>
+            <a href="/privacidad-y-seguridad">
+              Política y privacidad
+            </a>
+          </li>
+          <li>
+            <a href="/terminos-y-condiciones">
+              Términos y condiciones
+            </a>
+          </li>
+        </ul>
+      </div>
+      <span class="developed-by">
+        <a href="http://vicom.mx" target="_blank">
+          <img src="/arquivos/images_layout_vicom.png" alt="VICOM" />
+        </a>
+        <a href="https://es.vtex.com/" target="_blank">
+          <img src="/arquivos/images_layout_vtex.png" alt="VTEX" />
+        </a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- Hotjar Button. Begin -->
+<div class="footer-button hotjar">
+  <span>Hotjar</span>
+  <a href="">
+    <svg class="svg-icon">
+      <use href="#svg-icon-hotjar"></use>
+    </svg>
+  </a>
+</div>
+<!-- Whatsapp Button. End -->
+
+<!-- Whatsapp Button. Begin -->
+<!-- <div class="footer-button whatsapp">
+    <span>Whatsapp</span>
+    <a href="">
+        <svg class="svg-icon">
+            <use href="#svg-icon-whatsapp"></use>
+        </svg>
+    </a>
+  </div> -->
+<!-- Whatsapp Button. End -->
+
+<!-- Go to top. Begin -->
+<div class="go-to-top">
+  <svg class="svg-icon">
+    <use href="#svg-icon-chevron-up"></use>
+  </svg>
+</div>
+<!-- Go to top. End -->
+
+<!-- Cookies. Begin -->
+<div id="cookiesMessage" class="cookies-message">
+  <p class="cookies-message__text">
+    Utilizamos cookies propias y de terceros para elaborar información
+    estadística y mostrarle publicidad a tráves del análisis de su navegación.
+    Si continúa navegando acepta su uso.
+  </p>
+  <button
+    id="cookiesMessageTrigger"
+    class="button-lineal primary cookies-message__trigger"
+  >
+    Aceptar
+  </button>
+</div>
+<!-- Cookies. End -->
+
+<!-- Close hotjar y freshchat. Begin -->
+<div class="closechat">
+  <span class="closechat-x"> X </span>
+</div>
+<!-- Close hotjar y freshchat. End -->
+
+<vtex.cmc:xCemacoMiniCart />
+<vtex.cmc:xCemacoAddToCart />

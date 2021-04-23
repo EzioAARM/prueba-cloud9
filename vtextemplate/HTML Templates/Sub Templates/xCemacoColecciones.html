@@ -1,0 +1,73 @@
+<div class="collection--image"></div>
+
+<script>
+  // Impermeabilizacion
+  if (
+    window.location.pathname.includes("1173") ||
+    window.location.pathname.includes("1176")
+  ) {
+    document.querySelector(".collection--image").innerHTML =
+      '<a href="/impermeabilizacion"><img src="/arquivos/2021_impermeabilizacion1.jpg" class="desktop" /><img src="/arquivos/2021_impermeabilizacion1_mobile.jpg" class="mobile" /></a>';
+  }
+  if (window.location.pathname.includes("1177")) {
+    document.querySelector(".collection--image").innerHTML =
+      '<a href="/impermeabilizacion"><img src="/arquivos/2021_impermeabilizacion2.jpg" class="desktop" /><img src="/arquivos/2021_impermeabilizacion2_mobile.jpg" class="mobile" /></a>';
+  }
+  if (window.location.pathname.includes("1175")) {
+    document.querySelector(".collection--image").innerHTML =
+      '<a href="/impermeabilizacion"><img src="/arquivos/2021_impermeabilizacion3.jpg" class="desktop" /><img src="/arquivos/2021_impermeabilizacion3_mobile.jpg" class="mobile" /></a>';
+  }
+  if (window.location.pathname.includes("1174")) {
+    document.querySelector(".collection--image").innerHTML =
+      '<a href="/impermeabilizacion"><img src="/arquivos/2021_impermeabilizacion4.jpg" class="desktop" /><img src="/arquivos/2021_impermeabilizacion4_mobile.jpg" class="mobile" /></a>';
+  }
+
+  // Cocina y mesa
+  if (window.location.pathname.includes("1182")) {
+    document.querySelector(".collection--image").innerHTML =
+      '<a href="/cocinaymesa"><img src="/arquivos/2021_banner_cocinamesa1.jpg" class="desktop" /><img src="/arquivos/2021_banner_cocinamesa1_mobile.jpg" class="mobile" /></a>';
+  }
+  if (window.location.pathname.includes("1183")) {
+    document.querySelector(".collection--image").innerHTML =
+      '<a href="/cocinaymesa"><img src="/arquivos/2021_banner_cocinamesa2.jpg" class="desktop" /><img src="/arquivos/2021_banner_cocinamesa2_mobile.jpg" class="mobile" /></a>';
+  }
+  if (window.location.pathname.includes("1185")) {
+    document.querySelector(".collection--image").innerHTML =
+      '<a href="/cocinaymesa"><img src="/arquivos/2021_banner_cocinamesa3.jpg" class="desktop" /><img src="/arquivos/2021_banner_cocinamesa3_mobile.jpg" class="mobile" /></a>';
+  }
+  if (window.location.pathname.includes("1186")) {
+    document.querySelector(".collection--image").innerHTML =
+      '<a href="/cocinaymesa"><img src="/arquivos/2021_banner_cocinamesa4.jpg" class="desktop" /><img src="/arquivos/2021_banner_cocinamesa4_mobile.jpg" class="mobile" /></a>';
+  }
+  if (window.location.pathname.includes("1184")) {
+    document.querySelector(".collection--image").innerHTML =
+      '<a href="/cocinaymesa"><img src="/arquivos/2021_banner_cocinamesa5.jpg" class="desktop" /><img src="/arquivos/2021_banner_cocinamesa5_mobile.jpg" class="mobile" /></a>';
+  }
+  if (window.location.pathname.includes("1187")) {
+    document.querySelector(".collection--image").innerHTML =
+      '<a href="/cocinaymesa"><img src="/arquivos/2021_banner_cocinamesa6.jpg" class="desktop" /><img src="/arquivos/2021_banner_cocinamesa6_mobile.jpg" class="mobile" /></a>';
+  }
+  if (window.location.pathname.includes("1188")) {
+    document.querySelector(".collection--image").innerHTML =
+      '<a href="/cocinaymesa"><img src="/arquivos/2021_banner_cocinamesa7.jpg" class="desktop" /><img src="/arquivos/2021_banner_cocinamesa7_mobile.jpg" class="mobile" /></a>';
+  }
+</script>
+<style>
+  .collection--image {
+    margin-bottom: 20px;
+  }
+  .collection--image .mobile {
+    display: block;
+  }
+  .collection--image .desktop {
+    display: none;
+  }
+  @media screen and (min-width: 768px) {
+    .collection--image .mobile {
+      display: none;
+    }
+    .collection--image .desktop {
+      display: block;
+    }
+  }
+</style>
